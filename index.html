@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<head>
+	<title>1Hundred game by Wildeng</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/stylesheets/gameStyle.css" />
+    <script src="assets/js/jquery-1.11.0.min.js"></script>
+    <script src="assets/js/jquery.mobile-1.4.2.js"></script>
+    <link rel="stylesheet" href="assets/stylesheets/jquery.mobile-1.4.2.css" />
+    <script src="assets/js/numberGames.js"></script>
+    <script type="text/javascript">var switchTo5x=true;</script>
+    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">stLight.options({publisher: "ba0ae526-d675-4705-8031-96602a305e11", doNotHash: false, doNotCopy: false, hashAddressBar: false});
+    </script>  
+    <body>
+	    <div data-role="page" id="mainPage" class="mainSection">
+	    	<div data-role="panel" data-display="overlay" id="share" class="ui-corner-all">
+				<span class='st_sharethis_large' displayText='ShareThis'></span>
+	            <span class='st_facebook_large' displayText='Facebook'></span>
+	            <span class='st_twitter_large' displayText='Tweet'></span>
+	            <span class='st_linkedin_large' displayText='LinkedIn'></span>
+	            <span class='st_googleplus_large' displayText='Google +'></span>
+	            <p><a href="#mainPage" data-rel="close" class="ui-btn ui-btn-inline ui-corner-all ui-btn-b">Back</a></p>
+	        </div>
+			<div data-role="content" >
+				<div data-role="panel" data-display="overlay" id="rules" class="ui-corner-all">
+						<div class="rules">
+							<span class="title">How to play:</span><br />
+							You must fill all cells and reach 100 starting from whenever you want in the grid and following these simple rules: 
+							<ol>
+								<li>You can go right leaving a space of two cells from the previous move.</li>
+								<li>You can go left leaving a space of two cells from the previous move.</li>
+								<li>You can go up leaving a space of two cells from the previous move.</li>
+								<li>You can go down leaving a space of two cells from the previous move.</li>
+								<li>You can even move diagonally, leaving one cell from the previous move.</li>
+								<li>When there aren't any more allowed moves, the game stops.</li>
+						    </ol>
+						    <p><a href="#mainPage" data-rel="close" class="ui-btn ui-btn-inline ui-corner-all ui-btn-b">Back</a></p>
+			 			</div>
+				</div>
+				<div class="mainContainer">
+					<div class="ui-grid-d center buttons">
+						<div class="ui-block-a">
+							<a href="#share" class="ui-shadow ui-btn ui-corner-all ui-icon-heart ui-btn-icon-notext ui-btn-inline" title="Share">Button</a>
+						</div>
+						<div class="ui-block-b">
+							<a href="#rules" class="ui-shadow ui-btn ui-corner-all ui-icon-alert ui-btn-icon-notext ui-btn-inline" title="Game rules">Button</a>
+						</div>
+						<div class="ui-block-c"> 
+							<a href="#mainPage" class="ui-shadow ui-btn ui-corner-all ui-icon-refresh ui-btn-icon-notext ui-btn-inline" onclick="game.init();" rel="external" title="New game">Button</a>
+						</div>
+						<div class="ui-block-d">
+							<div id="score_container" class="ui-btn ui-btn-inline ui-corner-all">
+								Moves:&nbsp; 
+								<span id="score">&nbsp;</span>
+							</div>
+						</div>
+				</div>
+					<div  class="container">
+						<canvas id="main" class="gamefield"></canvas>
+					</div>
+			    </div>
+			</div>
+		    <div data-role="popup" id="dialogAlert" class="ui-content" data-theme="b" data-overlay-theme="b" title="">
+		    	<div id="popupContent"></div>
+		    	<a class="ui-btn ui-shadow ui-btn-corner-all ui-btn-inline ui-btn-up-b" data-theme="b" data-transition="flow" data-rel="back" data-inline="true" data-role="button" href="#" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span">OK</a>
+		    </div>
+		    <div data-role="popup" id="dialogGameover" class="ui-content" data-theme="b" data-overlay-theme="b" title="">
+		    	<div id="popupGameover"></div>
+		    	<a class="ui-btn ui-shadow ui-btn-corner-all ui-btn-inline ui-btn-up-b" data-theme="b" data-transition="flow" data-rel="back" data-inline="true" data-role="button" href="#mainPage" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" onclick="game.init();" rel="external">Yes</a>
+		    	<a class="ui-btn ui-shadow ui-btn-corner-all ui-btn-inline ui-btn-up-b" data-theme="b" data-transition="flow" data-rel="back" data-inline="true" data-role="button" href="#" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span">No</a>
+		    </div>
+		    <div data-role="popup" id="dialogWinner" class="ui-content" data-theme="b" data-overlay-theme="b" title="">
+		    	<div id="popupWinner"></div>
+		    	<a class="ui-btn ui-shadow ui-btn-corner-all ui-btn-inline ui-btn-up-b" data-theme="b" data-transition="flow" data-rel="back" data-inline="true" data-role="button" href="#mainPage" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" onclick="game.init();" rel="external">Yes</a>
+		    	<a class="ui-btn ui-shadow ui-btn-corner-all ui-btn-inline ui-btn-up-b" data-theme="b" data-transition="flow" data-rel="back" data-inline="true" data-role="button" href="#" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span">No</a>
+		    </div>
+		</div>
+	</body>
+</head>
